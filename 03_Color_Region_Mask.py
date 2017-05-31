@@ -3,7 +3,7 @@ import matplotlib.image as mpimg
 import numpy as np
 
 # Read in the image
-image = mpimg.imread('test.jpg')
+image = mpimg.imread('Color_Selection_Test_Input.jpg')
 
 # Grab the x and y sizes and make two copies of the image
 # With one copy we'll extract only the pixels that meet our selection,
@@ -15,9 +15,9 @@ color_select= np.copy(image)
 line_image = np.copy(image)
 
 # Define our color criteria
-red_threshold = 0
-green_threshold = 0
-blue_threshold = 0
+red_threshold = 200
+green_threshold = 200
+blue_threshold = 200
 rgb_threshold = [red_threshold, green_threshold, blue_threshold]
 
 # Define a triangle region of interest (Note: if you run this code,
@@ -25,8 +25,8 @@ rgb_threshold = [red_threshold, green_threshold, blue_threshold]
 # you'll find these are not sensible values!!
 # But you'll get a chance to play with them soon in a quiz ;)
 left_bottom = [0, 539]
-right_bottom = [900, 300]
-apex = [400, 0]
+right_bottom = [900, 539]
+apex = [475, 320]
 
 fit_left = np.polyfit((left_bottom[0], apex[0]), (left_bottom[1], apex[1]), 1)
 fit_right = np.polyfit((right_bottom[0], apex[0]), (right_bottom[1], apex[1]), 1)
@@ -48,6 +48,11 @@ color_select[color_thresholds] = [0, 0, 0]
 line_image[~color_thresholds & region_thresholds] = [255, 0, 0]
 
 # Display our two output images
+plt.imshow(image)
+x = [left_bottom[0], right_bottom[0], apex[0], left_bottom[0]]
+y = [left_bottom[1], right_bottom[1], apex[1], left_bottom[1]]
+plt.plot(x, y, 'b--', lw=4)
 plt.imshow(color_select)
 plt.imshow(line_image)
+plt.show()
 
