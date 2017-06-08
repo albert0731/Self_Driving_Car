@@ -11,7 +11,7 @@ image = mpimg.imread('Color_Selection_Test_Input.jpg')
 # overlaid on the original.
 ysize = image.shape[0]
 xsize = image.shape[1]
-color_select= np.copy(image)
+color_select = np.copy(image)
 line_image = np.copy(image)
 
 # Define our color criteria
