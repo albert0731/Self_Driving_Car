@@ -36,4 +36,5 @@ region_select[region_thresholds] = [255, 0, 0]
 
 # Display the image
 plt.imshow(region_select)
+plt.imsave('02_Region_of_Interest_Mask.png', region_select)
 plt.show()

@@ -52,5 +52,6 @@ color_edges = np.dstack((edges, edges, edges))
 # Draw the lines on the edge image
 lines_edges = cv2.addWeighted(color_edges, 0.8, line_image, 1, 0)
 plt.imshow(lines_edges)
+plt.imsave('05_Hough_Transform_on_Edge_Detected_Image.png', lines_edges)
 plt.show()
 

@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import numpy as np
 
+
 # Read in the image
 image = mpimg.imread('Color_Selection_Test_Input.jpg')
 
@@ -54,5 +55,6 @@ y = [left_bottom[1], right_bottom[1], apex[1], left_bottom[1]]
 plt.plot(x, y, 'b--', lw=4)
 plt.imshow(color_select)
 plt.imshow(line_image)
+plt.savefig('03_Color_Region_Mask_Output.png')
 plt.show()
 
